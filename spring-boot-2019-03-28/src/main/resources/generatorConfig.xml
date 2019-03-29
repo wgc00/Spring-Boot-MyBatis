@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mariadb" targetRuntime="MyBatis3Simple">
+
+        <!-- 去掉注解 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
+                        connectionURL="jdbc:mariadb://localhost:3308/empDB"
+                        userId="root" password="123456">
+        </jdbcConnection>
+
+        <!-- Model生成规则 -->
+        <javaModelGenerator targetPackage="com.wgc.springboot20190328.entity" targetProject="src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- mapper文件 -->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources"/>
+
+        <!-- dao 规则 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wgc.springboot20190328.dao"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 表的生成 -->
+        <table tableName="emp">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+            <!-- 除去表前缀 -->
+            <!-- <domainObjectRenamingRule searchString="^Blog" replaceString="" /> -->
+            <!-- 去掉表字段前缀 -->
+            <columnRenamingRule searchString="emp_" replaceString="" />
+        </table>
+    </context>
+</generatorConfiguration>
