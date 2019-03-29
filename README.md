@@ -12,7 +12,7 @@
 	spring.datasource.type=com.mchange.v2.c3p0.ComboPooledDataSource
 
 	## tomcat 配置
-	server.port=8080
+	server.port=8080  
 
 	## 配置监控
 	management.endpoints.web.exposure.include=*
