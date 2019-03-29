@@ -16,7 +16,7 @@
 
 	## 配置监控
 	management.endpoints.web.exposure.include=*
-
+    
 	## 引入log4j的配置
 	# spring.profiles.active=log4j
 
